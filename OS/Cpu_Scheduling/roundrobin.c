@@ -1,16 +1,22 @@
 #include <stdio.h>
+
 int i, j, n, time = 0, tq, npthaa; // npthaa = no: process that has already arrived
+
 float avgtat = 0, avgwt = 0;
+
 struct Process
 {
     int pid, at, bt, wt, ct, tat, rt, rbt; // rt = run time, rbt = remaining burst time
 } p[30], temp, queue[10];                  // queue is for table
+
 void main()
 {
+
     printf("Enter TIme Quanta:");
     scanf("%d", &tq);
     printf("Enter No. Process:");
     scanf("%d", &n);
+
     for (i = 0; i < n; i++)
     {
         p[i].pid = i + 1;
@@ -20,6 +26,7 @@ void main()
         scanf("%d", &p[i].bt);
         p[i].rbt = p[i].bt;
     }
+
     // Sorting
     for (i = 0; i < n; i++)
     {
@@ -33,6 +40,7 @@ void main()
             }
         }
     }
+    
     // Computation
     for (i = 0; i < n; i++)
     {
@@ -64,6 +72,7 @@ void main()
             p[i].ct = time;
         }
     }
+    
     // Table queue
     int z = 0;
     for (i = 0; i < n; i++)
